@@ -30,7 +30,7 @@ Um servidor de eco multitarefa robusto, desenvolvido em Python utilizando a bibl
 ### 2. Iniciando o Servidor
 Clone o repositório e execute o script principal:
 ```bash
-python servidor.py
+python server.py
 ```
 ---
 
