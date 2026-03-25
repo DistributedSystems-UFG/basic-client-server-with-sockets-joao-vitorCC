@@ -3,15 +3,37 @@ from constCS import * #-
 import math
 import time
 
-def calcular_raiz(comando):
-    """Calcula a raiz quadrada: 'RAIZ 25' -> 5.0"""
+def somar_valores(dados):
+    partes = dados.split()
+    
+    # Verifica se enviou a quantidade certa de argumentos
+    if len(partes) != 3:
+        return "Erro: Use SOMA <num1> <num2>"
+    
     try:
-        valor = float(comando.split()[1])
-        if valor < 0: return "Erro: Não existe raiz de número negativo."
-        resultado = math.sqrt(valor)
-        return f"A raiz quadrada de {valor} é {resultado}"
-    except:
+        # Tenta converter as strings para números (float aceita decimais)
+        n1 = float(partes[1])
+        n2 = float(partes[2])
+        res = n1 + n2
+        return f"Resultado da soma: {res}"
+    except ValueError:
+        # Se o usuário digitou letras em vez de números, cai aqui
+        return "Erro: Os valores fornecidos devem ser números válidos."
+
+def calcular_raiz(comando):
+    """Calcula raiz quadrada: 'RAIZ 25' -> 5.0"""
+    partes = comando.split()
+    
+    if len(partes) != 2:
         return "Erro: Use RAIZ <numero>"
+    
+    try:
+        valor = float(partes[1])
+        if valor < 0:
+            return "Erro: Não existe raiz quadrada real de número negativo."
+        return f"A raiz de {valor} é {math.sqrt(valor)}"
+    except ValueError:
+        return "Erro: O valor para a raiz deve ser um número."
         
 def inverter_texto(dados):
     # Exemplo: cliente envia "INVERTE ola mundo"
@@ -33,6 +55,8 @@ while True:                # forever
 		resposta = calcular_raiz(comando)
 	elif comando.startswith("INVERTE"):
 		resposta = inverter_texto(comando)
+	elif comando.startswith("SOMA"):
+		resposta = somar_valores(comando)	
 	else:
 		resposta = "Comando não reconhecido. Use RAIZ ou INVERTE."
 	#print(bytes.decode(data))

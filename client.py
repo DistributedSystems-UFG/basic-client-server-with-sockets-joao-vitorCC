@@ -1,7 +1,7 @@
 from socket  import *
 from constCS import * #-
 
-comando = input()
+comando = input(f"DIGITE UM COMANDO\n")
 s = socket(AF_INET, SOCK_STREAM)
 s.connect((HOST, PORT)) # connect to server (block until accepted)
 s.send(str.encode(comando))  # send some data
