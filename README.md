@@ -8,3 +8,36 @@ Este template corresponde ao exemplo da Fig. 2.3 do livro. O exercício consiste
 Tarefa individual.
 
 Incluir um Readme descritivo do sistema implementado.
+
+# 🚀 Python TCP Operations Server
+
+Um servidor de eco multitarefa robusto, desenvolvido em Python utilizando a biblioteca `socket`. Este servidor é capaz de processar operações matemáticas e manipular strings, tratando erros de entrada de forma resiliente.
+
+## 📋 Funcionalidades
+
+- **Cálculos Matemáticos**: Realiza somas e cálculos de raiz quadrada.
+- **Validação de Dados**: Proteção contra entradas não numéricas usando blocos `try/except`.
+- **Tratamento de Strings**: Normalização de comandos (ignora maiúsculas/minúsculas e espaços extras).
+- **Log de Conexão**: Exibe o endereço IP e a porta de cada cliente conectado no terminal do servidor.
+
+---
+
+## 🛠️ Como Executar
+
+### 1. Pré-requisitos
+* Python 3.x instalado.
+
+### 2. Iniciando o Servidor
+Clone o repositório e execute o script principal:
+```bash
+python servidor.py
+```
+---
+
+## 🛠️ Como Executar no lado cliente
+
+| Comando    | Descrição | Exemplo de Entrada | Saída Esperada |
+| ---------- | ----- | ------ | ------ |
+| SOMA    | Soma dois números reais  | SOMA 15 25.5 |Resultado da soma: 40.5|
+| RAIZ   | Calcula a raiz quadrada  | RAIZ 64 | A raiz de 64.0 é 8.0|
+| INVERTE   | Inverte as letras de uma string  | INVERTE 123456 abc |Texto invertido: cba 654321|
